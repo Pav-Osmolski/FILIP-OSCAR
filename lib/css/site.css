@@ -68,7 +68,11 @@ h2 { font-size: clamp(42px, 5vw, 68px); letter-spacing: -.065em; line-height: 1.
 .more-music { border-top: 1px solid var(--line); padding-top: 24px; margin-top: 30px; }
 .more-music > a { display: flex; justify-content: space-between; font-size: 14px; padding-block: 10px; text-decoration: none; border-bottom: 1px solid var(--line); }
 .watch { position: relative; isolation: isolate; background: #242522; color: var(--paper); padding-block: 62px 72px; }
-.watch::before { content: ""; position: absolute; z-index: -1; inset: 0; pointer-events: none; background: url("../img/background_ravens.jpg") top / 600px 600px repeat; opacity: 0.3; }
+.watch::before { content: ""; position: absolute; z-index: -1; inset: 0; pointer-events: none; background: url("../img/background_ravens.jpg") top / 600px 600px repeat; opacity: 0.3; animation: raven-drift 90s linear infinite; }
+@keyframes raven-drift {
+  from { background-position: 0 0; }
+  to { background-position: 600px 0; }
+}
 .watch .section-heading { border-color: #50514b; }
 .watch h2 { margin-bottom: 34px; }
 .watch a:hover { color: #ffb7c2; }
@@ -134,6 +138,7 @@ details p { margin: 0 0 20px; font-size: 14px; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .button, button { transition: none; }
+  .watch::before { animation: none; }
 }
 @media print {
   .hero::before { display: none; }
