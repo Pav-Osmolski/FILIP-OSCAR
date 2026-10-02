@@ -34,6 +34,8 @@ figure, h1, h2, p { margin: 0; }
 nav { display: flex; gap: 34px; }
 nav a { font-family: var(--typewriter); font-size: 13px; text-decoration: none; padding-block: 10px; }
 .hero { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; padding-block: 76px 86px; }
+.hero.section-wrap { position: relative; isolation: isolate; width: 100%; padding-inline: max(56px, calc((100% - 1200px) / 2)); }
+.hero::before { content: ""; position: absolute; z-index: -1; inset: 0; pointer-events: none; background: linear-gradient(to bottom, transparent 65%, var(--paper)), url("../img/secretlife-aligned.jpg") center / cover no-repeat; opacity: 0.16; }
 .eyebrow { font-family: var(--typewriter); font-size: 12px; letter-spacing: 1.2px; text-transform: uppercase; line-height: 1.6; }
 h1 { font-family: var(--typewriter); font-size: clamp(56px, 6.7vw, 96px); font-weight: 700; letter-spacing: 0; line-height: 1.15; margin: 30px 0; }
 .hero-description { font-family: var(--typewriter); font-size: 15px; line-height: 1.9; margin-bottom: 28px; }
@@ -101,6 +103,7 @@ details p { margin: 0 0 20px; font-size: 14px; }
   .site-header { padding-inline: 32px; }
   .hero, .album-grid, .bio-grid { gap: 40px; }
   .hero { padding-block: 55px 70px; }
+  .hero.section-wrap { padding-inline: 32px; }
   .hero-description { font-size: 13px; }
 }
 @media (max-width: 700px) {
@@ -112,6 +115,7 @@ details p { margin: 0 0 20px; font-size: 14px; }
   nav a { font-size: 11px; }
   .hero, .album-grid, .bio-grid { grid-template-columns: 1fr; gap: 34px; }
   .hero { padding-block: 42px 58px; }
+  .hero.section-wrap { padding-inline: 20px; }
   h1 { font-size: clamp(48px, 14vw, 92px); margin-block: 25px; }
   .hero-art { margin-top: 10px; }
   .section-heading { align-items: start; margin-bottom: 30px; gap: 20px; }
@@ -131,6 +135,7 @@ details p { margin: 0 0 20px; font-size: 14px; }
   .button, button { transition: none; }
 }
 @media print {
+  .hero::before { display: none; }
   .ripple-canvas { display: none; }
   .site-header, .skip-link, .media-embed button, .video-embed, .spotify-embed { display: none; }
   body, .watch, .contact { background: white; color: black; }
