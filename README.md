@@ -28,7 +28,7 @@ The players are not contacted until a visitor loads one. Direct service links re
 available if playback is blocked or JavaScript is disabled.
 
 The FILIP OSCAR hero branding and FO header use the original
-`monospacetypewriterregular` font at regular weight, without a full stop.
+`monospacetypewriterregular` font with browser-synthesised bold weight, without a full stop.
 Artwork ripples respond to pointer movement and taps, with bounded overlapping
 waves and pixel density. Rendering stops when waves settle, the art leaves the
 viewport, the tab is hidden, or the album player replaces the image.
@@ -79,4 +79,4 @@ be checked on staging.
 
 Additional browser checks covered visible ripple changes on both artworks, idle
 and offscreen pauses, context loss/restoration, reduced-motion and unavailable-WebGL
-fallbacks, album player load/close lifecycle, and the branding font and regular weight.
+fallbacks, album player load/close lifecycle, and the branding font and weight.
