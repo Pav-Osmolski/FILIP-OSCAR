@@ -99,6 +99,7 @@ summary { display: flex; align-items: center; justify-content: space-between; ga
 summary::-webkit-details-marker { display: none; }
 details[open] summary span { transform: rotate(45deg); }
 details p { margin: 0 0 20px; font-size: 14px; }
+.details-content { display: flow-root; overflow: hidden; }
 .contact { background: #e9ddd1; padding-block: 72px 80px; }
 .contact h2 { font-size: clamp(60px, 8vw, 112px); margin-block: 26px 16px; }
 .email-link { display: inline-block; font-size: clamp(18px, 2.7vw, 34px); letter-spacing: -.025em; overflow-wrap: anywhere; text-decoration: none; border-bottom: 1px solid var(--ink); }
