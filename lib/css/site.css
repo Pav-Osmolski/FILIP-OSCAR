@@ -90,7 +90,7 @@ h2 { font-size: clamp(42px, 5vw, 68px); letter-spacing: -.065em; line-height: 1.
 .album-art .unload-player, .video-embed .unload-player { position: absolute; right: 8px; bottom: 8px; margin: 0; }
 .bio { padding-block: 100px; }
 .bio.section-wrap { position: relative; isolation: isolate; width: 100%; padding-inline: max(56px, calc((100% - 1200px) / 2)); }
-.bio::before { content: ""; position: absolute; z-index: -1; inset: 0; pointer-events: none; background: url("../img/raven.jpg") center / cover no-repeat; opacity: 0.7; }
+.bio::before { content: ""; position: absolute; z-index: -1; inset: 0; pointer-events: none; background: linear-gradient(to bottom, transparent 65%, var(--paper)), url("../img/raven.jpg") top / cover no-repeat; opacity: 0.7; }
 .portrait > img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 35% center; }
 .bio-copy > p:not(.lead) { margin-block: 20px 30px; color: var(--muted); font-size: 15px; }
 details { border-top: 1px solid var(--line); }
