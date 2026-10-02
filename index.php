@@ -31,23 +31,24 @@ function asset_version(string $path): string
     <meta name="twitter:image" content="https://www.filiposcar.com/lib/img/album_thewayisgolden.jpg">
     <link rel="preload" href="lib/fonts/MonospaceTypewriter-webfont.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="<?= asset_version('lib/css/site.css') ?>">
+    <script defer src="<?= asset_version('lib/js/ripples.js') ?>"></script>
     <script defer src="<?= asset_version('lib/js/site.js') ?>"></script>
 </head>
 <body>
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
-        <a class="wordmark" href="#filiposcar" aria-label="Filip Oscar home">FO<span aria-hidden="true">.</span></a>
+        <a class="wordmark" href="#filiposcar" aria-label="Filip Oscar home">FO</a>
         <nav aria-label="Main navigation"><a href="#listen">Listen</a><a href="#watch">Watch</a><a href="#bio">Hello</a><a href="#contact">Contact ↗</a></nav>
     </header>
     <main id="main">
         <section class="hero section-wrap" id="filiposcar" aria-labelledby="hero-title">
-            <div class="hero-copy"><p class="eyebrow">Independent music · London</p><h1 id="hero-title">Filip<br>Oscar<span>.</span></h1><p class="hero-description">Guitar strings, ivory keys<br>and technological bleeps.</p><a class="button button-dark" href="#listen">Find your next listen <span aria-hidden="true">↘</span></a></div>
-            <figure class="hero-art"><img src="lib/img/filiposcar_big.jpg" alt="Filip Oscar artwork: a dark, glowing red sphere against a soft pink background" width="1024" height="1024" fetchpriority="high"><figcaption><span>Songs. Sounds. Stories.</span><span aria-hidden="true">01 / FO</span></figcaption></figure>
+            <div class="hero-copy"><p class="eyebrow">Independent music · London</p><h1 id="hero-title">FILIP<br>OSCAR</h1><p class="hero-description">Guitar strings, ivory keys<br>and technological bleeps.</p><a class="button button-dark" href="#listen">Find your next listen <span aria-hidden="true">↘</span></a></div>
+            <figure class="hero-art"><div class="ripple-art" data-ripple><img src="lib/img/filiposcar_big.jpg" alt="Filip Oscar artwork: a dark, glowing red sphere against a soft pink background" width="1024" height="1024" fetchpriority="high"></div><figcaption><span>Songs. Sounds. Stories.</span><span aria-hidden="true">01 / FO</span></figcaption></figure>
         </section>
         <section class="listen section-wrap" id="listen" aria-labelledby="listen-title">
             <div class="section-heading"><p class="eyebrow">01 / Listen</p><p>A little world to get lost in.</p></div>
             <div class="album-grid">
-                <div class="album-art media-embed" data-provider="bandcamp"><img src="lib/img/album_thewayisgolden.jpg" alt="Cover artwork for The Way is Golden by Filip Oscar" width="1000" height="1000" loading="lazy"><button class="embed-trigger" type="button" hidden><span class="play-icon" aria-hidden="true">▶</span><span>Load Bandcamp player</span></button></div>
+                <div class="album-art media-embed ripple-art" data-provider="bandcamp" data-ripple><img src="lib/img/album_thewayisgolden.jpg" alt="Cover artwork for The Way is Golden by Filip Oscar" width="1000" height="1000" loading="lazy"><button class="embed-trigger" type="button" hidden><span class="play-icon" aria-hidden="true">▶</span><span>Load Bandcamp player</span></button></div>
                 <div class="album-copy"><p class="eyebrow">Featured album</p><h2 id="listen-title">The Way<br>is Golden.</h2><p class="lead">An invitation to press play.<br>Stay for a song. Stay for the whole thing.</p>
                     <div class="link-row"><a class="button button-dark" href="https://filiposcar.bandcamp.com/album/the-way-is-golden" target="_blank" rel="noopener noreferrer">Listen on Bandcamp <span aria-hidden="true">↗</span></a><a class="text-link" href="https://open.spotify.com/album/7FG9Tcb7yg01Fbi3TdHgT2" target="_blank" rel="noopener noreferrer">Spotify <span aria-hidden="true">↗</span></a></div>
                     <div class="spotify-embed media-embed" data-provider="spotify"><button class="embed-trigger compact-trigger" type="button" hidden>Load Spotify player <span aria-hidden="true">+</span></button></div>

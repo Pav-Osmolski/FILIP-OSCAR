@@ -1,5 +1,5 @@
 @font-face {
-  font-family: "Typewriter";
+  font-family: "monospacetypewriterregular";
   src: url("../fonts/MonospaceTypewriter-webfont.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
@@ -11,7 +11,7 @@
   --muted: #6a625a;
   --accent: #ab3046;
   --line: #d6cec3;
-  --typewriter: "Typewriter", "Courier New", monospace;
+  --typewriter: "monospacetypewriterregular", "Courier New", monospace;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 100px; }
@@ -28,15 +28,18 @@ figure, h1, h2, p { margin: 0; }
 .skip-link { position: fixed; top: 12px; left: 12px; padding: 12px 20px; z-index: 100; background: var(--ink); color: white; transform: translateY(-150%); }
 .skip-link:focus { transform: translateY(0); }
 .site-header { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; padding: 16px 56px; background: var(--paper); border-bottom: 1px solid var(--line); }
-.wordmark { font-size: 31px; font-weight: 800; letter-spacing: -2px; text-decoration: none; }
+.wordmark { font-family: var(--typewriter); font-size: 31px; font-weight: 400; letter-spacing: 0; text-decoration: none; }
 .wordmark span, h1 span, .contact h2 span { color: var(--accent); }
 nav { display: flex; gap: 34px; }
 nav a { font-family: var(--typewriter); font-size: 13px; text-decoration: none; padding-block: 10px; }
 .hero { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; padding-block: 76px 86px; }
 .eyebrow { font-family: var(--typewriter); font-size: 12px; letter-spacing: 1.2px; text-transform: uppercase; line-height: 1.6; }
-h1 { font-size: clamp(72px, 9vw, 134px); font-weight: 800; letter-spacing: -0.085em; line-height: .94; margin: 30px 0; }
+h1 { font-family: var(--typewriter); font-size: clamp(56px, 6.7vw, 96px); font-weight: 400; letter-spacing: 0; line-height: 1.15; margin: 30px 0; }
 .hero-description { font-family: var(--typewriter); font-size: 15px; line-height: 1.9; margin-bottom: 28px; }
 .hero-art img { width: 100%; aspect-ratio: 1; object-fit: cover; }
+.ripple-art { position: relative; aspect-ratio: 1; }
+.ripple-canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.album-art > .embed-trigger { z-index: 1; }
 figcaption { display: flex; justify-content: space-between; gap: 12px; font-family: var(--typewriter); font-size: 11px; color: var(--muted); padding-top: 13px; }
 .button { display: inline-flex; justify-content: space-between; align-items: center; gap: 25px; min-height: 50px; padding: 12px 22px; font-family: var(--typewriter); font-size: 12px; text-decoration: none; border: 1px solid transparent; }
 .button-dark { background: var(--ink); color: var(--paper); }
@@ -108,7 +111,7 @@ details p { margin: 0 0 20px; font-size: 14px; }
   nav a { font-size: 11px; }
   .hero, .album-grid, .bio-grid { grid-template-columns: 1fr; gap: 34px; }
   .hero { padding-block: 42px 58px; }
-  h1 { font-size: clamp(80px, 19vw, 130px); margin-block: 25px; }
+  h1 { font-size: clamp(48px, 14vw, 92px); margin-block: 25px; }
   .hero-art { margin-top: 10px; }
   .section-heading { align-items: start; margin-bottom: 30px; gap: 20px; }
   .section-heading > p:not(.eyebrow), .section-heading > a { text-align: right; max-width: 55%; font-size: 11px; }
@@ -126,6 +129,7 @@ details p { margin: 0 0 20px; font-size: 14px; }
   html { scroll-behavior: auto; }
 }
 @media print {
+  .ripple-canvas { display: none; }
   .site-header, .skip-link, .media-embed button, .video-embed, .spotify-embed { display: none; }
   body, .watch, .contact { background: white; color: black; }
   .section-wrap { width: 100%; }

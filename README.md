@@ -19,12 +19,22 @@ The development server does not apply Apache's `.htaccess` rules.
 - `index.php`: content, biography, navigation, metadata, artwork, and outbound links.
 - `lib/css/site.css`: responsive layout, typography, colours, and reduced-motion rules.
 - `lib/js/site.js`: visitor-triggered Bandcamp, Spotify, and YouTube players.
+- `lib/js/ripples.js`: standalone WebGL ripples for the hero and album artwork.
 - `lib/img/` and `lib/fonts/`: the original artwork and locally hosted typewriter font.
 
 The page works without JavaScript. Biography sections use native HTML disclosures.
 With JavaScript enabled, visitors may load and close third-party players.
 The players are not contacted until a visitor loads one. Direct service links remain
 available if playback is blocked or JavaScript is disabled.
+
+The FILIP OSCAR hero branding and FO header use the original
+`monospacetypewriterregular` font at regular weight, without a full stop.
+Artwork ripples respond to pointer movement and taps, with bounded overlapping
+waves and pixel density. Rendering stops when waves settle, the art leaves the
+viewport, the tab is hidden, or the album player replaces the image.
+Reduced-motion settings and unavailable WebGL keep the original static artwork.
+WebGL context loss falls back to the image and restoration rebuilds GPU resources.
+Touch scrolling remains native; media buttons do not trigger ripples.
 
 The old compiled CSS, jQuery, ripple, and scrolling scripts remain as historical
 assets, but the page no longer loads them. Update the new source files directly:
@@ -56,6 +66,7 @@ from this refresh: album names and identifiers are preserved from the original s
 ```sh
 php -l index.php
 node --check lib/js/site.js
+node --check lib/js/ripples.js
 ```
 
 The refresh was checked in a Chromium-based browser at 320, 390, 768, and 1440px.
@@ -65,3 +76,7 @@ attributes, navigation anchors, biography disclosures, reduced motion, and opera
 with JavaScript disabled. Third-party iframe responses were mocked for these
 interaction checks: live playback and production Apache configuration must also
 be checked on staging.
+
+Additional browser checks covered visible ripple changes on both artworks, idle
+and offscreen pauses, context loss/restoration, reduced-motion and unavailable-WebGL
+fallbacks, album player load/close lifecycle, and the branding font and regular weight.
