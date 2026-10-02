@@ -67,7 +67,8 @@ h2 { font-size: clamp(42px, 5vw, 68px); letter-spacing: -.065em; line-height: 1.
 .embed-note { font-size: 11px; color: var(--muted); margin-top: 10px; }
 .more-music { border-top: 1px solid var(--line); padding-top: 24px; margin-top: 30px; }
 .more-music > a { display: flex; justify-content: space-between; font-size: 14px; padding-block: 10px; text-decoration: none; border-bottom: 1px solid var(--line); }
-.watch { background: #242522; color: var(--paper); padding-block: 62px 72px; }
+.watch { position: relative; isolation: isolate; background: #242522; color: var(--paper); padding-block: 62px 72px; }
+.watch::before { content: ""; position: absolute; z-index: -1; inset: 0; pointer-events: none; background: url("../img/background_ravens.jpg") center / 600px 600px repeat; opacity: 0.3; }
 .watch .section-heading { border-color: #50514b; }
 .watch h2 { margin-bottom: 34px; }
 .watch a:hover { color: #ffb7c2; }
@@ -136,6 +137,7 @@ details p { margin: 0 0 20px; font-size: 14px; }
 }
 @media print {
   .hero::before { display: none; }
+  .watch::before { display: none; }
   .ripple-canvas { display: none; }
   .site-header, .skip-link, .media-embed button, .video-embed, .spotify-embed { display: none; }
   body, .watch, .contact { background: white; color: black; }
