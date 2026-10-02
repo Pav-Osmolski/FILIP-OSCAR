@@ -1,0 +1,95 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Redirect HTTP to HTTPS
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Redirect non-www to www
+  RewriteCond %{HTTP_HOST} ^filiposcar\.com$ [NC]
+  RewriteRule ^(.*)$ https://www.filiposcar.com/$1 [L,R=301]
+
+  # Redirect .co.uk to .com
+  RewriteCond %{HTTP_HOST} ^(www\.)?filiposcar\.co\.uk$ [NC]
+  RewriteRule ^(.*)$ https://www.filiposcar.com/$1 [L,R=301]
+</IfModule>
+
+##<IfModule mod_rewrite.c>
+##  RewriteRule ^(.*\.js) gzip.php?type=js&file=$1
+##  RewriteRule ^(.*\.css) gzip.php?type=css&file=$1
+##</IfModule>
+
+## EXPIRES CACHING ##
+<IfModule mod_expires.c>
+ExpiresActive On
+
+ExpiresByType image/jpg "access 1 week"
+ExpiresByType image/jpeg "access 1 week"
+ExpiresByType image/gif "access 1 week"
+ExpiresByType image/png "access 1 week"
+ExpiresByType text/css "access 1 week"
+ExpiresByType text/html "access 1 week"
+ExpiresByType application/pdf "access 1 week"
+ExpiresByType text/x-javascript "access 1 week"
+ExpiresByType application/x-shockwave-flash "access 1 week"
+ExpiresByType image/x-icon "access 1 week"
+ExpiresDefault "access 1 week"
+
+# Add correct content-type for fonts
+AddType application/vnd.ms-fontobject .eot
+AddType font/ttf .ttf
+AddType font/otf .otf
+AddType font/woff .woff
+AddType font/woff2 .woff2
+AddType image/svg+xml .svg
+
+# Compress compressible fonts
+AddOutputFilterByType DEFLATE font/ttf font/otf image/svg+xml
+
+# Add a far future Expires header for fonts
+ExpiresByType application/vnd.ms-fontobject "access 1 month"
+ExpiresByType font/ttf "access 1 month"
+ExpiresByType font/otf "access 1 month"
+ExpiresByType font/woff "access 1 month"
+ExpiresByType font/woff2 "access 1 month"
+ExpiresByType image/svg+xml "access 1 month"
+</IfModule>
+## EXPIRES CACHING ##
+
+# BEGIN GZIP COMPRESSION
+<IfModule mod_deflate.c>
+# Compress HTML, CSS, JavaScript, Text, XML and fonts
+AddOutputFilterByType DEFLATE application/javascript
+AddOutputFilterByType DEFLATE application/rss+xml
+AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
+AddOutputFilterByType DEFLATE application/x-font
+AddOutputFilterByType DEFLATE application/x-font-opentype
+AddOutputFilterByType DEFLATE application/x-font-otf
+AddOutputFilterByType DEFLATE application/x-font-truetype
+AddOutputFilterByType DEFLATE application/x-font-ttf
+AddOutputFilterByType DEFLATE application/x-javascript
+AddOutputFilterByType DEFLATE application/xhtml+xml
+AddOutputFilterByType DEFLATE application/xml
+AddOutputFilterByType DEFLATE font/opentype
+AddOutputFilterByType DEFLATE font/otf
+AddOutputFilterByType DEFLATE font/ttf
+AddOutputFilterByType DEFLATE image/svg+xml
+AddOutputFilterByType DEFLATE image/x-icon
+AddOutputFilterByType DEFLATE text/css
+AddOutputFilterByType DEFLATE text/html
+AddOutputFilterByType DEFLATE text/javascript
+AddOutputFilterByType DEFLATE text/plain
+AddOutputFilterByType DEFLATE text/xml
+
+# Remove browser bugs (only needed for really old browsers)
+BrowserMatch ^Mozilla/4 gzip-only-text/html
+BrowserMatch ^Mozilla/4\.0[678] no-gzip
+BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+Header append Vary User-Agent
+</IfModule>
+# END GZIP COMPRESSION
+
+Redirect 301 /raven-white https://filiposcar.bandcamp.com/album/raven-white
+Redirect 301 /brokenness-trio https://filiposcar.bandcamp.com/album/brokenness-trio
+Redirect 301 /twig https://filiposcar.bandcamp.com/album/the-way-is-golden
