@@ -89,6 +89,8 @@ h2 { font-size: clamp(42px, 5vw, 68px); letter-spacing: -.065em; line-height: 1.
 .unload-player { display: block; margin: 12px 0 0 auto; background: var(--paper); color: var(--ink); border: 1px solid var(--line); padding: 8px 12px; min-height: 44px; font-family: var(--typewriter); font-size: 11px; }
 .album-art .unload-player, .video-embed .unload-player { position: absolute; right: 8px; bottom: 8px; margin: 0; }
 .bio { padding-block: 100px; }
+.bio.section-wrap { position: relative; isolation: isolate; width: 100%; padding-inline: max(56px, calc((100% - 1200px) / 2)); }
+.bio::before { content: ""; position: absolute; z-index: -1; inset: 0; pointer-events: none; background: url("../img/raven.jpg") center / cover no-repeat; opacity: 0.3; }
 .portrait > img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 35% center; }
 .bio-copy > p:not(.lead) { margin-block: 20px 30px; color: var(--muted); font-size: 15px; }
 details { border-top: 1px solid var(--line); }
@@ -108,7 +110,7 @@ details p { margin: 0 0 20px; font-size: 14px; }
   .site-header { padding-inline: 32px; }
   .hero, .album-grid, .bio-grid { gap: 40px; }
   .hero { padding-block: 55px 70px; }
-  .hero.section-wrap { padding-inline: 32px; }
+  .hero.section-wrap, .bio.section-wrap { padding-inline: 32px; }
   .hero-description { font-size: 13px; }
 }
 @media (max-width: 700px) {
@@ -120,7 +122,7 @@ details p { margin: 0 0 20px; font-size: 14px; }
   nav a { font-size: 11px; }
   .hero, .album-grid, .bio-grid { grid-template-columns: 1fr; gap: 34px; }
   .hero { padding-block: 42px 58px; }
-  .hero.section-wrap { padding-inline: 20px; }
+  .hero.section-wrap, .bio.section-wrap { padding-inline: 20px; }
   h1 { font-size: clamp(48px, 14vw, 92px); margin-block: 25px; }
   .hero-art { margin-top: 10px; }
   .section-heading { align-items: start; margin-bottom: 30px; gap: 20px; }
@@ -143,6 +145,7 @@ details p { margin: 0 0 20px; font-size: 14px; }
 @media print {
   .hero::before { display: none; }
   .watch::before { display: none; }
+  .bio::before { display: none; }
   .ripple-canvas { display: none; }
   .site-header, .skip-link, .media-embed button, .video-embed, .spotify-embed { display: none; }
   body, .watch, .contact { background: white; color: black; }
