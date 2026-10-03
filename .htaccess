@@ -1,0 +1,47 @@
+# Canonical redirects apply only to the production domains, allowing local previews.
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTP_HOST} ^(www\.)?filiposcar\.co\.uk$ [NC,OR]
+    RewriteCond %{HTTP_HOST} ^filiposcar\.com$ [NC]
+    RewriteRule ^ https://www.filiposcar.com%{REQUEST_URI} [R=301,L,NE]
+
+    RewriteCond %{HTTP_HOST} ^www\.filiposcar\.com$ [NC]
+    RewriteCond %{HTTPS} !=on
+    RewriteRule ^ https://www.filiposcar.com%{REQUEST_URI} [R=301,L,NE]
+</IfModule>
+
+# Retain existing album shortcuts.
+Redirect 301 /raven-white https://filiposcar.bandcamp.com/album/raven-white
+Redirect 301 /brokenness-trio https://filiposcar.bandcamp.com/album/brokenness-trio
+Redirect 301 /twig https://filiposcar.bandcamp.com/album/the-way-is-golden
+
+<IfModule mod_mime.c>
+    AddType font/woff .woff
+    AddType font/woff2 .woff2
+    AddType image/svg+xml .svg
+    AddType application/javascript .js
+</IfModule>
+
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/css application/javascript application/json image/svg+xml
+</IfModule>
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css "access plus 1 week"
+    ExpiresByType application/javascript "access plus 1 week"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/gif "access plus 1 month"
+    ExpiresByType image/x-icon "access plus 1 month"
+    ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    # HTML should revalidate so new artwork and asset versions reach visitors.
+    <FilesMatch "\.php$">
+        Header set Cache-Control "no-cache"
+    </FilesMatch>
+</IfModule>
