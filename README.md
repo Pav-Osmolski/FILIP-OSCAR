@@ -93,7 +93,11 @@ Legacy compiled CSS, Font Awesome, jQuery, ripple/scrolling plugins, font demos,
 
 `.htaccess` preserves the production domains and album shortcuts. Compression uses Apache `mod_deflate`; `php.ini` disables the previous duplicate PHP compression layer. Shared hosting may require the PHP setting in its control panel. For an HTTPS-terminating proxy, confirm the host's HTTPS detection before enabling redirects.
 
-The configuration uses `mod_rewrite`, `mod_alias`, `mod_mime`, `mod_deflate`, `mod_expires` and `mod_headers`, with optional-module blocks where applicable.
+The configuration uses `mod_rewrite`, `mod_alias`, `mod_mime`, `mod_deflate`, `mod_expires`, `mod_headers` and `mod_authz_core`, with optional-module blocks where applicable.
+
+Cloudflare Full (strict) validates an HTTPS connection to the origin. The canonical redirects use the origin's HTTPS status; they do not trust visitor-supplied forwarding headers. LiteSpeed/Cloudflare may provide Brotli compression independently of the Apache DEFLATE fallback.
+
+Configuration files such as `php.ini`, `.user.ini`, `.htaccess`, `.htpasswd` and `.env` are denied HTTP access. PHP responses revalidate and do not inherit a global expires policy. CSS/JavaScript cache for one week, images (including WebP, AVIF and SVG) for one month, and the WOFF2 font for one year. Upload the updated `.htaccess` to apply these policies; repository commits alone do not update hosting.
 
 ## Review notes
 
