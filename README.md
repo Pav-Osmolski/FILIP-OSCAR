@@ -10,6 +10,7 @@ No framework, database, Composer dependencies, package installation or build ste
 
 - `index.php` — page entry point, content, metadata and asset version helper.
 - `lib/css/site.css` — responsive layout, typography, backgrounds and animations.
+- `lib/css/dark-reader.css` — targeted compatibility styles loaded only for Dark Reader’s dynamic dark mode.
 - `lib/js/site.js` — media players, biography disclosures and background alignment.
 - `lib/js/ripples.js` — standalone WebGL artwork ripples.
 - `lib/fonts/` — the original locally hosted WOFF2 typewriter font.
@@ -81,6 +82,8 @@ The Watch background and video poster share a seamless 10-second raven animation
 The biography disclosures slide open and closed, handle rapid reversals, and use native `details`/`summary` behaviour without JavaScript. The Hello background and gradient retain their collapsed-section size as disclosures expand; their size adapts to width and font changes.
 
 Button colours and borders use 0.2-second ease transitions. Reduced-motion preferences disable decorative animation, ripples and disclosure motion. The page includes a skip link, keyboard focus styles and image descriptions.
+
+Dark Reader’s dynamic dark mode uses its user-selected neutral background/text colours with pink accents. A small compatibility stylesheet preserves background artwork and the aligned raven animation. The stylesheet is loaded only while that mode is active and is recreated after extension toggles; filter modes remain controlled by the extension.
 
 Legacy compiled CSS, Font Awesome, jQuery, ripple/scrolling plugins, font demos, unused font formats and the obsolete Universal Analytics tag have been removed.
 

@@ -1,0 +1,82 @@
+/* Loaded only for Dark Reader dynamic dark mode; excluded from its colour
+   rewriting so photography and coordinated raven tiles remain intact. */
+html[data-darkreader-scheme="dark"] {
+  --fo-dark-paper: var(--darkreader-neutral-background, #181a1b);
+  --fo-dark-ink: var(--darkreader-neutral-text, #e8e6e3);
+  --fo-dark-accent: #efacb8;
+  --fo-dark-line: color-mix(in srgb, var(--fo-dark-ink) 22%, var(--fo-dark-paper));
+  color-scheme: dark;
+}
+html[data-darkreader-scheme="dark"] body,
+html[data-darkreader-scheme="dark"] .site-header {
+  background-color: var(--fo-dark-paper) !important;
+  color: var(--fo-dark-ink) !important;
+}
+html[data-darkreader-scheme="dark"] .contact {
+  background-color: color-mix(in srgb, var(--fo-dark-paper) 92%, var(--fo-dark-accent)) !important;
+  color: var(--fo-dark-ink) !important;
+}
+html[data-darkreader-scheme="dark"] .wordmark,
+html[data-darkreader-scheme="dark"] h1,
+html[data-darkreader-scheme="dark"] h2,
+html[data-darkreader-scheme="dark"] a {
+  color: inherit !important;
+}
+html[data-darkreader-scheme="dark"] .bio-copy > p:not(.lead),
+html[data-darkreader-scheme="dark"] figcaption,
+html[data-darkreader-scheme="dark"] .embed-note {
+  color: color-mix(in srgb, var(--fo-dark-ink) 78%, var(--fo-dark-paper)) !important;
+}
+html[data-darkreader-scheme="dark"] .album-copy > .eyebrow,
+html[data-darkreader-scheme="dark"] .contact h2 span,
+html[data-darkreader-scheme="dark"] a:hover {
+  color: var(--fo-dark-accent) !important;
+}
+html[data-darkreader-scheme="dark"] .site-header,
+html[data-darkreader-scheme="dark"] .section-heading,
+html[data-darkreader-scheme="dark"] .more-music,
+html[data-darkreader-scheme="dark"] .more-music > a,
+html[data-darkreader-scheme="dark"] details,
+html[data-darkreader-scheme="dark"] .email-link {
+  border-color: var(--fo-dark-line) !important;
+}
+html[data-darkreader-scheme="dark"] .button,
+html[data-darkreader-scheme="dark"] .embed-trigger,
+html[data-darkreader-scheme="dark"] .unload-player {
+  background-color: var(--fo-dark-ink) !important;
+  color: var(--fo-dark-paper) !important;
+  border-color: transparent !important;
+}
+html[data-darkreader-scheme="dark"] .compact-trigger {
+  background-color: transparent !important;
+  color: var(--fo-dark-ink) !important;
+  border-color: var(--fo-dark-line) !important;
+}
+html[data-darkreader-scheme="dark"] .button:hover,
+html[data-darkreader-scheme="dark"] .embed-trigger:hover,
+html[data-darkreader-scheme="dark"] .unload-player:hover {
+  background-color: var(--fo-dark-accent) !important;
+  color: var(--fo-dark-paper) !important;
+}
+html[data-darkreader-scheme="dark"] :is(a, button, summary):focus-visible {
+  outline-color: var(--fo-dark-accent) !important;
+}
+html[data-darkreader-scheme="dark"] .hero::before {
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, .65), var(--fo-dark-paper)), url("../img/secretlife-aligned.jpg") !important;
+}
+html[data-darkreader-scheme="dark"] .bio::before {
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, .6) 65%, var(--fo-dark-paper)), url("../img/raven.jpg") !important;
+}
+html[data-darkreader-scheme="dark"] .watch {
+  background-color: #242522 !important;
+  color: var(--fo-dark-ink) !important;
+}
+html[data-darkreader-scheme="dark"] .watch::before {
+  background-image: url("../img/background_ravens.jpg") !important;
+}
+html[data-darkreader-scheme="dark"] .video-embed {
+  background-color: #111 !important;
+}
+html[data-darkreader-scheme="dark"] .video-poster::before {
+  background-image: url("../img/ravenwhite.jpg") !important;
+}

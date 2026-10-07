@@ -32,7 +32,7 @@ function asset_version(string $path): string
     <link rel="preload" href="lib/fonts/MonospaceTypewriter-webfont.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="<?= asset_version('lib/css/site.css') ?>">
     <script defer src="<?= asset_version('lib/js/ripples.js') ?>"></script>
-    <script defer src="<?= asset_version('lib/js/site.js') ?>"></script>
+    <script defer src="<?= asset_version('lib/js/site.js') ?>" data-dark-reader-css="<?= asset_version('lib/css/dark-reader.css') ?>"></script>
 </head>
 <body>
     <a class="skip-link" href="#main">Skip to content</a>
