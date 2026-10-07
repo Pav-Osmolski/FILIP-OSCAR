@@ -67,3 +67,9 @@ Redirect 301 /twig https://filiposcar.bandcamp.com/album/the-way-is-golden
         ExpiresActive Off
     </FilesMatch>
 </IfModule>
+
+# Local static error pages retain the original HTTP error status.
+ErrorDocument 400 /error-pages/400.html
+ErrorDocument 403 /error-pages/403.html
+ErrorDocument 404 /error-pages/404.html
+ErrorDocument 500 /error-pages/500.html
